@@ -1,0 +1,11 @@
+{
+    "name": "belicslavko/bootstrap-render",
+    "description": "Bootstrap render for Laravel 5",
+    "authors": [
+        {
+            "name": "Belic Slavko",
+            "email": "belicslavko@yahoo.com"
+        }
+    ],
+    "require": {}
+}
