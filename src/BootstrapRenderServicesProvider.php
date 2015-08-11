@@ -11,6 +11,7 @@ class BootstrapRenderServicesProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+		$this->loadViewsFrom(__DIR__.'/Views', 'BootstrapRender');
 		include __DIR__.'/routes.php';
 	}
 
