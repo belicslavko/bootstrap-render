@@ -1,4 +1,4 @@
-<?php namespace App\Providers;
+<?php namespace BelicSlavko\BootstrapRender;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -11,7 +11,7 @@ class BootstrapRenderServicesProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		//
+		include __DIR__.'/routes.php';
 	}
 
 	/**
