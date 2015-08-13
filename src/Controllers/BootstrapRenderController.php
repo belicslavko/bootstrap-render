@@ -86,6 +86,20 @@ class BootstrapRenderControllers extends Controller {
 	/**
 	 * @param $label
 	 * @param $name
+	 * @param $select
+	 * @param bool|false $value
+	 *
+	 * @return $this
+	 */
+	public function select( $label, $name, $select, $value = false ) {
+
+		return view( 'BootstrapRender::select' )->with( $data = array( 'label' => $label, 'name' => $name, 'select' => $select, 'value' => $value ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
 	 * @param bool|false $value
 	 *
 	 * @return $this
