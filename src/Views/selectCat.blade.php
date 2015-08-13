@@ -5,7 +5,7 @@
     @else
         <select class="form-control search-select" name="{{$name}}" onchange="getAttributes(this.value)">
     @endif
-            <option>--</option>
+            <option>{{trans('admin.emptyOptionSelect')}}</option>
             {!! $category_select !!}
         </select>
 
