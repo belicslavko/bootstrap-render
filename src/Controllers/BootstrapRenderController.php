@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: slavko
- * Date: 11.8.15.
- * Time: 12.10
- */
 
 namespace BelicSlavko\BootstrapRender;
 
@@ -13,39 +7,170 @@ use App\Http\Controllers\Controller;
 
 class BootstrapRenderControllers extends Controller {
 
-	public function editPostHeader($title, $slug){
+	/**
+	 * @param $title
+	 * @param $slug
+	 *
+	 * @return $this
+	 */
+	public function editPostHeader( $title, $slug ) {
 
-		return view( 'BootstrapRender::editPostHeader' )->with( $data = array('title' => $title, 'slug' => $slug) );
-
-	}
-
-	public function editErrorMsg($error){
-
-		return view( 'BootstrapRender::editErrorMsg' )->with( $data = array('error' => $error) );
-
-	}
-
-	public function editUpdateMsg($update){
-
-		return view( 'BootstrapRender::editUpdateMsg' )->with( $data = array('update' => $update) );
+		return view( 'BootstrapRender::editPostHeader' )->with( $data = array( 'title' => $title, 'slug' => $slug ) );
 
 	}
 
-	public function textInput($label, $name, $value, $class=false){
+	/**
+	 * @param $error
+	 *
+	 * @return $this
+	 */
+	public function editErrorMsg( $error ) {
 
-		return view( 'BootstrapRender::textInput' )->with( $data = array('label' => $label, 'name' => $name, 'value' => $value, 'class' => $class) );
+		return view( 'BootstrapRender::editErrorMsg' )->with( $data = array( 'error' => $error ) );
 
 	}
 
-	public function textArea($label, $name, $value, $id){
+	/**
+	 * @param $update
+	 *
+	 * @return $this
+	 */
+	public function editUpdateMsg( $update ) {
 
-		return view( 'BootstrapRender::textArea' )->with( $data = array('label' => $label, 'name' => $name, 'value' => $value, 'id' => $id) );
+		return view( 'BootstrapRender::editUpdateMsg' )->with( $data = array( 'update' => $update ) );
 
 	}
 
-	public function selectCat($label, $name, $value=false, $category_select){
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param $value
+	 * @param bool|false $class
+	 *
+	 * @return $this
+	 */
+	public function textInput( $label, $name, $value, $class = false ) {
 
-		return view( 'BootstrapRender::selectCat' )->with( $data = array('label' => $label,'name' => $name, 'category_select' => $category_select, 'value' => $value) );
+		return view( 'BootstrapRender::textInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'class' => $class ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param $value
+	 * @param $id
+	 *
+	 * @return $this
+	 */
+	public function textArea( $label, $name, $value, $id ) {
+
+		return view( 'BootstrapRender::textArea' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'id' => $id ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param $category_select
+	 * @param bool|false $value
+	 *
+	 * @return $this
+	 */
+	public function selectCat( $label, $name, $category_select, $value = false ) {
+
+		return view( 'BootstrapRender::selectCat' )->with( $data = array( 'label' => $label, 'name' => $name, 'category_select' => $category_select, 'value' => $value ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param bool|false $value
+	 *
+	 * @return $this
+	 */
+	public function active( $label, $name, $value = false ) {
+
+		return view( 'BootstrapRender::active' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param bool|false $value
+	 *
+	 * @return $this
+	 */
+	public function dateInput( $label, $name, $value = false ) {
+
+		return view( 'BootstrapRender::dateInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value ) );
+
+	}
+
+	/**
+	 * @param $name
+	 * @param $class
+	 *
+	 * @return $this
+	 */
+	public function updateButton( $name, $class ) {
+
+		return view( 'BootstrapRender::updateButton' )->with( $data = array( 'name' => $name, 'class' => $class ) );
+
+	}
+
+	/**
+	 * @param $name
+	 * @param $class
+	 *
+	 * @return $this
+	 */
+	public function saveButton( $name, $class ) {
+
+		return view( 'BootstrapRender::saveButton' )->with( $data = array( 'name' => $name, 'class' => $class ) );
+
+	}
+
+	/**
+	 * @param $images
+	 *
+	 * @return $this
+	 */
+	public function uploadImage( $images ) {
+
+		return view( 'BootstrapRender::uploadImage' )->with( $data = array( 'images' => $images ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $lng
+	 * @param $value
+	 * @param $slug
+	 * @param $type
+	 *
+	 * @return $this
+	 */
+	public function duplicateOn( $label, $lng, $value, $slug, $type ) {
+
+		return view( 'BootstrapRender::duplicateOn' )->with( $data = array( 'label' => $label, 'lng' => $lng, 'value' => $value, 'slug' => $slug, 'type' => $type ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $lng
+	 * @param $value
+	 * @param $type
+	 * @param $title_name
+	 *
+	 * @return $this
+	 */
+	public function versionOn( $label, $lng, $value, $type, $title_name ) {
+
+		return view( 'BootstrapRender::versionOn' )->with( $data = array( 'label' => $label, 'lng' => $lng, 'value' => $value, 'type' => $type, 'title_name' => $title_name ) );
 
 	}
 
