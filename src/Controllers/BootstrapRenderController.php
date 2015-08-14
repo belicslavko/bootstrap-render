@@ -42,6 +42,17 @@ class BootstrapRenderControllers extends Controller {
 	}
 
 	/**
+	 * @param $error
+	 *
+	 * @return $this
+	 */
+	public function uploadError($error){
+
+		return view( 'BootstrapRender::uploadErrorMsg' )->with( $data = array( 'error' => $error ) );
+
+	}
+
+	/**
 	 * @param $label
 	 * @param $name
 	 * @param $value
@@ -185,6 +196,19 @@ class BootstrapRenderControllers extends Controller {
 	public function versionOn( $label, $lng, $value, $type, $title_name ) {
 
 		return view( 'BootstrapRender::versionOn' )->with( $data = array( 'label' => $label, 'lng' => $lng, 'value' => $value, 'type' => $type, 'title_name' => $title_name ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param bool|false $value
+	 *
+	 * @return $this
+	 */
+	public function fileInput( $label, $name, $type = false, $value = false, $id = false ){
+
+		return view( 'BootstrapRender::fileInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'type' => $type, 'id' => $id ) );
 
 	}
 
