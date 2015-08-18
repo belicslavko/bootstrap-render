@@ -70,6 +70,34 @@ class BootstrapRenderControllers extends Controller {
 	 * @param $label
 	 * @param $name
 	 * @param $value
+	 * @param bool|false $class
+	 *
+	 * @return $this
+	 */
+	public function emailInput( $label, $name, $value, $class = false ) {
+
+		return view( 'BootstrapRender::emailInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'class' => $class ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param $value
+	 * @param bool|false $class
+	 *
+	 * @return $this
+	 */
+	public function passwordInput( $label, $name, $value, $class = false ) {
+
+		return view( 'BootstrapRender::passwordInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'class' => $class ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param $value
 	 * @param $id
 	 *
 	 * @return $this
