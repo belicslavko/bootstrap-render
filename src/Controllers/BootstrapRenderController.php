@@ -88,9 +88,9 @@ class BootstrapRenderControllers extends Controller {
 	 *
 	 * @return $this
 	 */
-	public function passwordInput( $label, $name, $value, $class = false ) {
+	public function passwordInput( $label, $name, $class = false ) {
 
-		return view( 'BootstrapRender::passwordInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'class' => $class ) );
+		return view( 'BootstrapRender::passwordInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'class' => $class ) );
 
 	}
 
