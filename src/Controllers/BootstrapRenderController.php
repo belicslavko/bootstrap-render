@@ -125,6 +125,20 @@ class BootstrapRenderControllers extends Controller {
 	/**
 	 * @param $label
 	 * @param $name
+	 * @param $category_select
+	 * @param bool|false $value
+	 *
+	 * @return $this
+	 */
+	public function selectParentCat( $label, $name, $category_select, $value = false ) {
+
+		return view( 'BootstrapRender::selectParentCat' )->with( $data = array( 'label' => $label, 'name' => $name, 'category_select' => $category_select, 'value' => $value ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
 	 * @param $select
 	 * @param bool|false $value
 	 *
