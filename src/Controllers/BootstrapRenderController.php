@@ -4,6 +4,7 @@ namespace BelicSlavko\BootstrapRender;
 
 
 use App\Http\Controllers\Controller;
+use App\Model\Seo;
 
 class BootstrapRenderControllers extends Controller {
 
@@ -63,6 +64,20 @@ class BootstrapRenderControllers extends Controller {
 	public function textInput( $label, $name, $value, $class = false ) {
 
 		return view( 'BootstrapRender::textInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'class' => $class ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param $value
+	 * @param bool|false $class
+	 *
+	 * @return $this
+	 */
+	public function slug( $label, $name, $value, $class = false ) {
+
+		return view( 'BootstrapRender::slug' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'class' => $class ) );
 
 	}
 
@@ -170,6 +185,19 @@ class BootstrapRenderControllers extends Controller {
 	 *
 	 * @return $this
 	 */
+	public function checkbox( $label, $name, $value = false ) {
+
+		return view( 'BootstrapRender::checkbox' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value ) );
+
+	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param bool|false $value
+	 *
+	 * @return $this
+	 */
 	public function dateInput( $label, $name, $value = false ) {
 
 		return view( 'BootstrapRender::dateInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value ) );
@@ -253,5 +281,33 @@ class BootstrapRenderControllers extends Controller {
 		return view( 'BootstrapRender::fileInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'value' => $value, 'type' => $type, 'id' => $id ) );
 
 	}
+
+	/**
+	 * @param $label
+	 * @param $name
+	 * @param bool|false $value
+	 *
+	 * @return $this
+	 */
+	public function imageInput( $label, $name, $type, $value = false, $id = false ){
+
+		return view( 'BootstrapRender::imageInput' )->with( $data = array( 'label' => $label, 'name' => $name, 'type' => $type, 'value' => $value, 'id' => $id ) );
+
+	}
+
+	/**
+	 * @param $id
+	 * @param $type
+	 *
+	 * @return $this
+	 */
+	public function seoModal($id, $type){
+
+		$seo = Seo::where('element_id', $id)->where('type', $type)->first();
+
+		return view( 'BootstrapRender::seoModal' )->with( $data = array( 'id' => $id, 'type' => $type, 'seo'=>$seo ) );
+
+	}
+
 
 }
