@@ -6,6 +6,10 @@ namespace BelicSlavko\BootstrapRender;
 use App\Http\Controllers\Controller;
 use App\Model\Seo;
 
+/**
+ * Class BootstrapRenderControllers
+ * @package BelicSlavko\BootstrapRender
+ */
 class BootstrapRenderControllers extends Controller {
 
 	/**

@@ -1,6 +1,5 @@
-
-
-
+<hr>
+<label>{{$label}}:</label>
 <div class="form-group">
 
     <?php
@@ -13,15 +12,18 @@
     @foreach($lng as $l)
         @if(!$check->ifExistOnLng($type, $value->id, $l->language_code))
 
-            <label>{{$label}}: {{ $l->name }}</label>
+            <!--label{{ $l->name }}</label-->
             <div class="row">
 
                 <div class="form-inline">
-                    <div class="col-xs-6">
+                    <div class="col-xs-8">
                         <select class="form-control" id="js-select-ajax-{{$l->language_code}}"></select>
                     </div>
-                    <div class="col-xs-6">
-                        <button type="button" onclick="linkIt($('#js-select-ajax-<?php echo $l->language_code; ?>').val(), <?php echo $value->id ?>)" class="btn btn-primary">{{ trans('admin.linkedOn') }}</button>
+                    <div class="col-xs-4">
+                        <button type="button"
+                                onclick="linkIt($('#js-select-ajax-<?php echo $l->language_code; ?>').val(), <?php echo $value->id ?>)"
+                                class="btn btn-primary btn-xs"><i
+                                    class="fa fa-link"></i> {{ trans('admin.linkedOn') }} {{ $l->name }}</button>
                     </div>
 
                 </div>
@@ -90,7 +92,7 @@
 <script>
     function linkIt(select_value, id) {
 
-        alert(select_value + ' ' + id);
+        //alert(select_value + ' ' + id);
 
         $.ajax({
             type: "get",
