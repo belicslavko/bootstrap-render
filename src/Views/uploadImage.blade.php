@@ -4,6 +4,28 @@
         @if(!empty($images))
             @foreach($images as $im)
 
+                <script>
+
+                    var delay = (function () {
+                        var timer = 0;
+                        return function (callback, ms) {
+                            clearTimeout(timer);
+                            timer = setTimeout(callback, ms);
+                        };
+                    })();
+
+                    jQuery(function ($) {
+                        $('#imgName{{$im->id}}').keyup(function () {
+
+                            delay(function () {
+                                changeImgName('{{$im->id}}');
+                            }, 1000);
+
+
+                        });
+                    });
+                </script>
+
                 <li id="list_{{ $im->id }}" class="col-md-6 col-lg-4">
                     <div class="picture handle">
 
@@ -27,10 +49,12 @@
                                             <span class="">
                                         @if($im->slider_img == 1)
                                                     <input style="margin-top: 10px" type="checkbox" checked value="0"
-                                                           id="slider_img{{$im->id}}">
+                                                           id="slider_img{{$im->id}}"
+                                                           onclick="changeImgName('{{$im->id}}')">
                                                 @else
                                                     <input style="margin-top: 10px" type="checkbox" value="1"
-                                                           id="slider_img{{$im->id}}">
+                                                           id="slider_img{{$im->id}}"
+                                                           onclick="changeImgName('{{$im->id}}')">
                                                 @endif
                                                 <br>{{ trans('admin.sliderImage') }}
                                             </span>
@@ -38,9 +62,9 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="btn-group">
-                                            <a class="btn btn-default btn-xs" onclick="changeImgName('{{$im->id}}')">
+                                            <!-- a class="btn btn-default btn-xs" onclick="changeImgName('{{$im->id}}')">
                                                 <i class="fa fa-floppy-o"></i>
-                                            </a>
+                                            </a -->
                                             <a href="/cpl/images/del/{{$im->id}}"
                                                onClick="if (! confirm('{{ trans( 'admin.delMsg' ) }} ')) return false;"
                                                class="btn btn-danger btn-xs">
@@ -70,13 +94,25 @@
 
         var $_token = $('#token').val();
         var name = $("#imgName" + id).val();
-        var slider_img = $("#slider_img" + id).val();
+        var slider_img;
+
+        if ($("#slider_img" + id).is(':checked')) {
+            slider_img = 1;
+        } else {
+            slider_img = 0;
+        }
+
+
 
         $.ajax({
             type: "POST",
             headers: {'X-XSRF-TOKEN': $_token},
             url: "/cpl/images/changeName",
             data: {id: id, name: name, slider_img: slider_img}
+        }).done(function () {
+            $.notify({
+                message: "Success"
+            });
         });
 
 
